@@ -26,7 +26,7 @@ def get_auth_token() -> str | None:
                 self.send_response(200)
                 self.send_header('Content-type', 'text/html')
                 self.end_headers()
-                self.wfile.write(b'<html><head><title>Predictions Manager CLI</title><script>window.location.replace(window.location.href.replace("#","?"))</script></head><body><h1>Please replace the first # in the url with a ? and follow the link.</h1></body></html>')
+                self.wfile.write(b'<html><head><title>Predictions Manager CLI</title><script>url=window.location.href;if(url.includes("#"))window.location.replace(url.replace("#","?"))</script></head><body><h1>Please replace the first # in the url with a ? and follow the link.</h1></body></html>')
                 wait = True
                 return
 
